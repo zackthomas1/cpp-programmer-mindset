@@ -33,8 +33,7 @@ typename Container::value_type max_element(const Container& container) {
 
 size_t end_of_first_word(std::string_view s) noexcept {
     
-    char character = s[0];
-    if (character == 'a' || character == 'b') {
+    if (!s.starts_with('[')) {
         return 0;
     }
 

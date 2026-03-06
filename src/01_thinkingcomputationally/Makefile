@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-ggdb -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -pedantic
+CXXFLAGS=-ggdb -std=c++20 -Wall -Wextra -Werror -Wfatal-errors -pedantic
 
 BINDIR=..\..\bin
 OBJDIR=..\..\obj
