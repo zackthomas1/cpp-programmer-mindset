@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 /// @brief Templated function that takes a container and return the max value.
 /// @tparam Container 
@@ -37,7 +38,8 @@ size_t end_of_first_word(std::string_view s) noexcept {
         return 0;
     }
 
-    size_t position = 0; 
+    size_t position = 0;
+    assert(s[position] == '[');
     
     // s[0] is a '['
     position += 1;
@@ -48,8 +50,10 @@ size_t end_of_first_word(std::string_view s) noexcept {
     position += i;
 
     // s[position + i] is ','
-    position += 2;
-
+    position += 1;
+    assert(s[position] == ',');
+    position += 1;
+    
     // get then end of the first word after ','
     std::string_view b = s.substr(position);
     size_t j = end_of_first_word(b);
@@ -57,6 +61,7 @@ size_t end_of_first_word(std::string_view s) noexcept {
 
     // s[position + 1] is a ']' matching s[0]
     position += 1;
+    assert(s[position] == ']');
 
     return position;
 }
