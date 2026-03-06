@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-ggdb -std=c++20 -Wall -Wextra -Werror -Wfatal-errors -pedantic
+CXXFLAGS=-ggdb -std=c++23 -Wall -Wextra -Werror -Wfatal-errors -pedantic
 
 BINDIR=bin
 OBJDIR=obj
@@ -9,12 +9,14 @@ SRC=src/01_thinkingcomputationally/main.cpp
 
 ifeq ($(OS),Windows_NT)
 RM=del /Q
+RMPATH=$(subst /,\,$(TARGET))
 else
 RM=rm -f
+RMPATH=$(TARGET)
 endif
 
 main: $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 
 clean: 
-	$(RM) $(TARGET)
+	$(RM) $(RMPATH)
