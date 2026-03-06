@@ -129,6 +129,8 @@ int main() {
     std::vector<int>input({1,2,3,4,5});
     std::cout << "max element in input: " << max_element(input) << std::endl;
     
+    std::cout <<std::endl;
+
     // test end_of_first_word algorith
     std::string word1 = "a";                    // -> 0
     std::string word2 = "[a,a]";                // -> 4

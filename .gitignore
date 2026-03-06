@@ -42,4 +42,5 @@
 
 .vscode
 
-.\bin
+\bin
+\build
