@@ -3,41 +3,24 @@
     "configurePresets": [
         {
             "name": "mingw",
-            "displayName": "GCC 14.2.0 x86_64-w64-mingw32 (ucrt64)",
+            "displayName": "GCC 14.2.0 x86_64-w64-mingw32 (ucrt64) - Debug",
             "description": "Using compilers: C = c:\\msys64\\ucrt64\\bin\\gcc.exe, CXX = c:\\msys64\\ucrt64\\bin\\g++.exe",
             "generator": "MinGW Makefiles",
             "binaryDir": "${workspaceFolder}/build/${presetName}",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "c:/msys64/ucrt64/bin/gcc.exe",
                 "CMAKE_CXX_COMPILER": "c:/msys64/ucrt64/bin/g++.exe",
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        },
-        {
-            "name": "visualstudio",
-            "displayName": "Visual Studio Community 2022 Release - x86_amd64",
-            "description": "Using compilers for Visual Studio 17 2022 (x86_x64 architecture)",
-            "generator": "Visual Studio 17 2022",
-            "toolset": "host=x86",
-            "architecture": "x64",
-            "binaryDir": "${workspaceFolder}/build/${presetName}",
-            "cacheVariables": {
-                "CMAKE_C_COMPILER": "cl.exe",
-                "CMAKE_CXX_COMPILER": "cl.exe"
+                "CMAKE_CXX_STANDARD": "23",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON", 
+                "CMAKE_CXX_EXTENSIONS": "OFF",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         }
-    ],
+    ], 
     "buildPresets": [
         {
-            "name": "visualstudio-debug",
-            "displayName": "Visual Studio Community 2022 Release - x86_amd64 - Debug",
-            "description": "",
-            "configurePreset": "visualstudio",
-            "configuration": "Debug"
-        },
-        {
-            "name": "mingw",
-            "displayName": "GCC 14.2.0 x86_64-w64-mingw32 (ucrt64) - Release",
+            "name": "mingw", 
+            "displayName": "GCC 14.2.0 x86_64-w64-mingw32 (ucrt64) - Debug",
             "description": "",
             "configurePreset": "mingw"
         }
