@@ -8,8 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(CTest)
 enable_testing()
 
-add_executable(Think src/01_think.cpp)
-set_property(TARGET Think PROPERTY CXX_STANDARD 23)
-
-add_executable(Abstraction src/02_abstraction.cpp)
-set_property(TARGET Abstraction PROPERTY CXX_STANDARD 23)
+add_executable(Understand src/04_understandMachine.cpp)
+target_include_directories(Understand PRIVATE ${CMAKE_SOURCE_DIR}/include)
+set_property(TARGET Understand PROPERTY CXX_STANDARD 23)
