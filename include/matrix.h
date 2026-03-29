@@ -1,6 +1,10 @@
 #ifndef CT_MATRIX_H
 #define CT_MATRIX_H
 
+#include <algorithm>
+#include <type_traits>
+#include <memory>
+
 #include "matrix_view.h"
 
 namespace ct {
@@ -31,11 +35,18 @@ namespace ct {
             std::uninitialized_default_construct_n(this->data(), this->size());
         };
 
-        ~Matrix();
+        ~Matrix() {
+            deallocate(this->data(), this->rows(), this->cols());
+            this->reset();
+        }
+
+        /// @brief Implicityly converts a Matrix<T> to a MatrixView<const T>
+        /// Converting to a MatrixView should produce a read-only view. 
+        constexpr operator MatrixView<std::add_const_t<T>>() const noexcept {
+            /// std::add_const_t correctly converts a template T to a type const T
+            return MatrixView<std::add_const_t<T>>(this->data(), this->rows(), this->cols(), this->order());
+        }
     };
-    
-
 }
-
 
 #endif
